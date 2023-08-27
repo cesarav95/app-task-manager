@@ -1,0 +1,55 @@
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">{{!isModeEdit ? 'Nueva tarea ' : 'Editar tarea: ' + task.title}}</h5>
+    <div>
+      <form class="form-container" [formGroup]="taskForm">
+        <div class="form-group">
+          <label for="titulo">Titulo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titulo"
+            placeholder="Ingrese titulo"
+            formControlName="title"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descripcion</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            placeholder="Ingrese Descripcion"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="status">Estado</label>
+          <select
+            id="status"
+            class="form-control form-select"
+            formControlName="status"
+          >
+            <option *ngFor="let option of statusOptions" [value]="option.value">{{option.name}}</option>
+          </select>
+        </div>
+
+        <div class="option-buttons" >
+          <button type="submit" class="btn btn-primary" (click)="onSubmitForm()">
+            Guardar
+          </button>
+
+          <button *ngIf="isModeEdit" type="submit" class="btn btn-primary" (click)="cancelEditing()">
+            Cancelar
+          </button>
+          <button class="btn btn-secondary" (click)="clearForm()">Limpiar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+
+</div>

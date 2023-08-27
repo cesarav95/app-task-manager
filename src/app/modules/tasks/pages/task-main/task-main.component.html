@@ -1,0 +1,23 @@
+<div class="container-fluid ">
+  <br>
+  <h3>Gestion de Tareas</h3>
+  <div class="row page-container">
+    <div class="col-sm-12 col-md-8">
+      <app-task-table
+        [data]="tasks"
+        (updateTask)="onUpdateTask($event)"
+        (editTask)="onEditTask($event)"
+        (deleteTask)="onDeleteTask($event)"
+      ></app-task-table>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <app-task-form
+        #formTask
+        [mode]="modeSelected"
+        [task]="selectedTask"
+        (submitForm)="onSubmitForm($event)"
+        (cancelForm)="onCancelForm()"
+      ></app-task-form>
+    </div>
+  </div>
+</div>
